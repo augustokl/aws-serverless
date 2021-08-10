@@ -9,7 +9,13 @@ provider:
   lambdaHashingVersion: 20201221
 
 plugins:
+  - serverless-localstack
   - serverless-offline
+  - serverless-mocha-plugin
+
+custom:
+  serverless-offline:
+    useChildProcesses: true
 
 functions:
   hello:
