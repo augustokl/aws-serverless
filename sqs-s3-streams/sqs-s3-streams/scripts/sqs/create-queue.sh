@@ -1,10 +1,10 @@
-BUCKET_NAME=$1
-FILE_PATH=$2
+QUEUE_NAME=$1
 
 aws \
-    s3 cp $FILE_PATH s3://$BUCKET_NAME \
+    sqs create-queue \
+    --queue-name $QUEUE_NAME \
     # --endpoint-url=http://localhost:4566
 
 aws \
-    s3 ls s3://$BUCKET_NAME \
+    sqs list-queues \
     # --endpoint-url=http://localhost:4566

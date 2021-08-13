@@ -1,5 +1,6 @@
 class Handler {
   async main(event) {
+    console.log('**event', JSON.stringify(event, null, 2))
     try {
       return {
         statusCode: 200,
