@@ -4,3 +4,4 @@ new_user_credentials.csv
 .DS_Store
 lambda-environment
 test.js
+graphql-dynamodb
