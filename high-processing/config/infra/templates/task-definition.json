@@ -1,0 +1,30 @@
+{
+  "family": "process-data",
+  "networkMode": "awsvpc",
+  "taskRoleArn": "arn:aws:iam::215055501038:role/ecsTaskExecutionRole",
+  "executionRoleArn": "arn:aws:iam::215055501038:role/ecsTaskExecutionRole",
+  "cpu": "256",
+  "memory": "512",
+  "requiresCompatibilities": [
+    "FARGATE"
+  ],
+  "containerDefinitions": [
+    {
+      "name": "process-data",
+      "image": "215055501038.dkr.ecr.us-east-1.amazonaws.com/high-processing",
+      "essential": true,
+      "environment": [{
+        "name": "AWS_ENV_PATH",
+        "value": "/prod/high-processing-project/"
+      }],
+      "logConfiguration": {
+        "logDriver": "awslogs",
+        "options": {
+          "awslogs-group": "/ecs/high-processing-project",
+          "awslogs-region": "us-east-1",
+          "awslogs-stream-prefix": "high-processing"
+        }
+      }
+    }
+  ]
+}
